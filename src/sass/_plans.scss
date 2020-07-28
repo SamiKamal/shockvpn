@@ -1,0 +1,118 @@
+.container-color-1{
+    grid-column: 1 / -1;
+    background-color: #F8F8F8;
+    border-top-left-radius: 44px;
+    border-top-right-radius: 44px;
+    box-shadow: 0 5px 19px rgba(0, 0, 0, .16);
+    height: 220rem;
+
+}
+.plans{
+
+    .heading-1{
+        text-align: center;
+        margin-top: 5rem;
+        font-size: 4.5rem;
+    }
+
+    &__container{
+        display: flex;
+        margin: 0 auto;
+        padding: 10rem 20rem;
+        justify-content: space-between;
+
+        .plans__box{
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            padding: 4rem 7rem;
+            width: 46.5rem;
+            height: 48rem;
+            background-color: white;
+            border-radius: 49px;
+            box-shadow: 10px 5px 10px rgba(0, 0, 0, .04);
+
+            &--border{
+                position: absolute;
+                top: 53%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+
+        }
+        
+        .plans__box--border1{
+            margin-top: -4.2rem;
+            position: relative;
+            width: 48.5rem;
+            height: 53rem;
+            border-radius: 49px;
+            background-image: linear-gradient(43deg, rgba(170,68,242,1) 0%, rgba(68,79,242,1) 100%, rgba(68,79,242,1) 100%, rgba(170,68,242,1) 80%);
+            box-shadow: 10px 5px 10px rgba(0, 0, 0, .04);
+
+            &::before{
+                content: "Limited Time";
+                color: white;
+                font-size: 2.2rem;
+                font-weight: 500;
+                position: absolute;
+                top: 5px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+        
+    
+    }
+
+    &__header{
+        font-size: 3rem;
+        font-weight: 500;
+        text-align: center;
+    }
+
+    &__price{
+        color: $color-primary;
+        font-size: 8rem;
+        font-weight: 600;
+        text-align: center;
+        position: relative;
+
+        &::before{
+            content: '$';
+            font-size: 4.5rem;
+            color: $color-dark;
+            position: absolute;
+            left: 45px;
+            font-weight: 500;
+        }
+    }
+
+    &__text{
+        font-size: 2.2rem;
+        font-weight: 500;
+        color: $color-grey-light-2;
+        text-align: center;
+        margin-top: 0;
+        margin-top: -2rem;
+        margin-bottom: 6rem;
+    }
+
+
+    &__note{
+        font-size: 1.6rem;
+        color: $color-grey-light-2;
+        // text-align: center;
+        // margin-top: 0px;
+        // position: absolute;
+        // bottom: 10px;
+        // left: 50%;
+        // transform: translateX(-50%);
+        position: absolute;
+        // height: 100%;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+}

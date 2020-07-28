@@ -1,0 +1,36 @@
+.features{
+    grid-column: 2 / 10;
+
+    .heading-1{
+        text-align: center;
+        margin-top: 3rem;
+        font-size: 4.5rem;
+    }
+
+    &--container{
+        display: grid;
+        grid-template-columns: repeat(3, minmax(min-content, 1fr));
+        grid-template-rows: 1fr 1fr;
+        grid-gap: 17rem;
+        padding: 10rem;
+        align-content: space-between;
+    }
+
+    &__icon{
+        height: 76px;
+        filter: invert(37%) sepia(99%) saturate(5222%) hue-rotate(255deg) brightness(98%) contrast(94%);
+    }
+
+    &__header{
+        vertical-align: middle;
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    &__text{
+        font-size: 2rem;
+        color: $color-grey-light-2;
+        font-weight: 500;
+    }
+}

@@ -1,0 +1,86 @@
+.footer{
+    grid-column: 1 / -1;
+    margin-top: -4rem;
+    background-color: $color-dark;
+    border-top-left-radius: 44px;
+    border-top-right-radius: 44px;
+    box-shadow: 0 5px 19px rgba(0, 0, 0, .16);
+    color: white;
+
+    
+    
+    &__box{
+        display: grid;
+        grid-template-columns: repeat(4, minmax(min-content, 1fr));
+        grid-template-rows: 45px 1fr 100px;
+        
+    }
+    
+    &__heading{
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    &__ul{
+        list-style: none;
+    }
+    
+    &__li{
+        a{
+            font-size: 1.6rem;
+            color: $color-grey-light-2;
+            margin-top: .5rem;
+            text-decoration: none;
+
+        }
+    }
+    &__logo{
+        grid-row: 2/3;
+        margin-left: 10rem;
+        justify-self: center;
+        
+        .logo{
+            color: white;
+        }
+
+        .footer__rights{
+            font-size: 1.4rem;
+            color: $color-grey-light-2;
+        }
+        
+    }
+
+    &__customer{
+        grid-row: 2/3;
+        justify-self: center;
+
+    }
+
+    &__company{
+        grid-row: 2/3;
+        justify-self: start;
+
+    }
+
+    &__followus{
+        grid-row: 2/3;
+        justify-self: start;
+
+        &--ul{
+            list-style: none;
+        }
+
+        &--item{
+            display: inline-block;
+            margin-top: .5rem;
+            margin-right: 1rem;
+        }
+
+
+        &--img{
+            width: 28px;
+            filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+
+        }
+    }
+}

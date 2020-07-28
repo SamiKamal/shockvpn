@@ -1,0 +1,86 @@
+// COLOR VARIABLES
+$color-primary: #863EF2;
+
+$color-gradient-light: #E03EF2;
+$color-gradient-dark: #431F79;
+
+$color-dark: #1E1E1E;
+
+$color-grey-light-1: #F8F8F8;
+$color-grey-light-2: #757575;
+
+// FONT VARIABLES
+$font-primary: 'Poppins', sans-serif;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+}
+
+body {
+    font-family: $font-primary;
+    color: $color-dark;
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 100vh repeat(4, min-content);
+    grid-template-columns: minmax(6rem, 1fr) repeat(8 , minmax(min-content,20rem)) minmax(6rem, 1fr); 
+}
+
+.btn{
+    font-family: $font-primary;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6em 2.2em;
+    transition: all .5s ease;
+    cursor: pointer;
+
+    &-full{
+        background: rgb(170,68,242);
+        background: linear-gradient(43deg, rgba(170,68,242,1) 10%, rgba(68,79,242,1) 100%, rgba(68,79,242,1) 100%, rgba(170,68,242,1) 80%);
+        background-size: 150% auto;
+        box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.16);
+
+        &:hover{
+            background-position: -140px 0;
+            
+        }
+    }
+
+    &-unfull{
+        color: $color-dark;
+        background-color: transparent;
+        border: 1px solid $color-grey-light-2;
+    }
+
+    &:hover{
+        transform: translateY(-3px);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.16);
+    }
+
+    &:focus{
+        outline: none;
+        transform: translateY(-1px);
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.16);
+    }
+    
+
+}

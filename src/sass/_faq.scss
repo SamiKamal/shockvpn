@@ -1,0 +1,100 @@
+.faq{
+    grid-column: 2 / 10;
+
+    .heading-1{
+        font-size: 4.5rem;
+        margin-top: 10rem;
+        text-align: center;
+    }
+
+    &__container{
+        display: grid;
+        grid-template-columns: minmax(min-content,95rem);
+        height: 80rem;
+        flex-direction: column;
+        margin: 0 auto;
+        padding: 10rem 20rem;
+        justify-content: center;
+        align-content: start;
+    }
+
+    &__box{
+        width: 100%;
+        border: 1px solid #CFCCCC;
+        background-color: white;
+        padding: 3rem;
+        margin-bottom: 4rem;
+        transition: all .5s;
+        height: min-content;
+    }
+
+    &__header{
+        font-size: 2.4rem;
+        font-weight: 600;
+        position: relative;
+        cursor: pointer;
+
+        span{
+            color: $color-primary;
+        }
+        
+        i{
+            font-size: 2.5rem;
+            margin-right: 1rem;
+            transition: transform .5s;
+        }
+
+        // &::before{
+        //     position: absolute;
+        //     display: block;
+        //     content: '\203a';
+        //     font-weight: 400;
+        //     font-family: 'Modak', cursive;
+        //     font-size: 30pt;
+        //     left: -10px;
+        //     top: -2px;
+        //     transition: transform .15s ease-in-out;
+        //     color: rgba(0,0,0,1);
+        
+        // }
+    }
+
+    &__text{
+        // display: none;
+        max-height: 0;
+        opacity: 0;
+        margin: 0 !important;
+        font-size: 2rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        width: 60rem;
+        color: $color-grey-light-2;
+        visibility: hidden;
+        transition: max-height .5s, opacity .2s;
+    }
+}
+
+.faq__box.active{
+    transition: all 1.2s;
+
+    i{
+        transform: rotate(90deg);
+        transition: transform .5s;
+    }
+
+    .faq__header{
+        margin-bottom: 1rem;
+    }
+
+    .faq__text{
+        // display: block;
+        max-height: 1000px;
+        opacity: 1;
+        margin: 1rem !important;
+        visibility: visible;
+        transition: max-height 1s, opacity 1s;
+
+    }
+    
+
+}

@@ -1,0 +1,38 @@
+.logo{
+    font-size: 3.4rem;
+    font: 800;
+
+    span{
+        color: $color-primary;
+    }
+}
+
+.heading-1{
+    font-size: 6.4rem;
+    font-weight: 600;
+
+    span{
+        color: $color-primary;
+    }
+}
+
+.heading-2{
+    font-size: 4.5rem;
+    font-weight: 600;
+
+    span{
+        color: $color-primary;
+    }
+}
+
+.heading-3{
+    font-size: 2rem;
+    font-weight: 500;
+    color: $color-primary;
+}
+
+.text{
+    font-size: 2rem;
+    color: $color-grey-light-2;
+    font-weight: 500;
+}

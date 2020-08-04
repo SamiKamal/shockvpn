@@ -1,19 +1,83 @@
 .hero{
     grid-column: 2 / 10;
+    grid-row: 1/2;
 
     .nav{
         display: flex;
         padding: 5rem 2rem;
         justify-content: space-between;
+        position: relative;
+
+        .box , .icon{display: none;}
+
+            // NAV RESONSIVE
+    @media only screen and (max-width: $bp-large) {
+        .box {
+            display: inline-block;
+            width: 65px;
+            height: 65px;
+            // float: left;
+            top: -10rem;
+            z-index: 2;
+
+          }
+          
+          .icon {
+              display: block;
+            stroke: $color-dark;
+            position: relative;
+            top: -1.4rem;
+            // // left: 50%;
+            // transform: translate(-50%,-50%);
+            //   width: 100px; 
+            //   height: 100px;
+              fill: none;
+              stroke-width: 6;
+              stroke-linecap: round;
+              stroke-linejoin: round;
+            cursor: pointer;
+
+            @media only screen and (max-width: $bp-small){
+                top: -2.6rem;
+            }
+    
+
+          }
+          
+        
+    }
+
 
         &--list{
             font-size: 2.6rem;
             list-style: none;
+
+            @media only screen and (max-width: $bp-large){
+                background-color: white;
+                padding: 20rem 20rem 10rem 20rem;
+                height: 100vh;
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translateX(140%);
+                box-shadow: -10px 3px 20px rgba(0, 0, 0, .10);
+                transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+                z-index: 2;
+            }
             
         }
         &--item{
             display: inline-block;
             padding-right: 2rem;
+
+            @media only screen and (max-width: $bp-large){
+                margin-bottom: 10rem;
+                text-align: left;
+
+                &:first-child{
+                    margin-top: 10rem;
+                }
+            }
 
             i{
                 transform: rotate(90deg);
@@ -30,6 +94,14 @@
             &:last-child{
                 text-transform: uppercase;
                 margin-left: 3rem;
+                
+                @media only screen and (max-width: $bp-large){
+                    margin-left: 0;
+                }
+            }
+
+            @media only screen and (max-width: $bp-large){
+                display: block;
             }
         }
         &--link{
@@ -64,7 +136,11 @@
     &__text{
         display: inline-block;
         margin-top: 15rem;
-        width: 560px;
+        max-width: 560px;
+
+        // @media only screen and (max-wdith: $bp-medium){
+        //     width: ;
+        // }
 
 
         .heading-3{
@@ -87,6 +163,15 @@
         width: 50%;
         height: auto;
         margin-right: -10rem;
+        object-fit: cover;
+
+        @media only screen and (max-width: $bp-large) {
+            display: none;
+        }
     }
+
+
+
+    
 
 }

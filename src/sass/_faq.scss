@@ -16,6 +16,7 @@
         padding: 10rem 20rem;
         justify-content: center;
         align-content: start;
+        margin-bottom: 33rem;
     }
 
     &__box{
@@ -70,7 +71,7 @@
         width: 60rem;
         color: $color-grey-light-2;
         visibility: hidden;
-        transition: max-height .5s, opacity .2s;
+        transition: max-height .5s, opacity .4s;
     }
 }
 

@@ -5,13 +5,24 @@
     border-top-left-radius: 44px;
     border-top-right-radius: 44px;
     box-shadow: 0 5px 19px rgba(0, 0, 0, .16);
-    height: 80rem;
+    height: 100rem;
+
+    @media only screen and (max-width: $bp-smallest){
+        height: 140rem;
+    }
+
 
 }
 
 
 .contact {
     grid-column: 2 / 10;
+    padding: 0 5rem;
+
+    @media only screen and (max-width: $bp-smallest){
+        padding: 0 2rem;
+    }
+
 
     .heading-1{
         margin-top: 10rem;
@@ -19,7 +30,9 @@
     }
 
     &__box{
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        row-gap: 10rem;
         max-width: 104.4rem;
         margin: 0 auto;
         padding: 4rem;
@@ -28,7 +41,17 @@
     }
 
     &__form{
-        width: 60%;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(min-content, 1fr));
+        grid-template-rows: min-content 1fr;
+
+        @media only screen and (max-width: $bp-smallest){
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, minmax(min-content, 80px)) 1fr;
+            width: 300px;
+        }
+
 
         &--input{
             border: 0;
@@ -36,6 +59,7 @@
             background-color: inherit;
             padding: 1rem;
             padding-left: 0;
+            align-self: flex-start;
             transition: all .5s;
 
             &:focus{
@@ -43,14 +67,29 @@
                 border-radius: 5px;
             }
 
+            &-name{
+                margin-right: 3rem;
+                justify-self: left;
+            }
+
             &-email{
-                margin-left: 5vw;
+                @media only screen and (max-width: $bp-smallest){
+                    justify-self: left;
+                    // align-self: center;
+                }
+        
             }
 
             &-message{
                 margin-top: 5rem;
                 padding-bottom: 16rem;
-                padding-right: 18vw;
+                grid-column: 1/-1;
+                align-self: flex-start;
+
+                // @media only screen and (max-width: $bp-smallest){
+                //     justify-self: flex-start;
+                // }
+    
             }
 
             &::placeholder{
@@ -68,6 +107,11 @@
 
         .heading-2{
             font-size: 2.4rem;
+
+            @media only screen and (max-width: $bp-small){
+                font-size: 3rem;
+            }
+    
         }
 
         &--ul{
@@ -80,6 +124,12 @@
             list-style: none;
             color: $color-grey-light-2;
             margin-top: 1.8rem;
+
+            @media only screen and (max-width: $bp-small){
+                font-size: 2rem;
+                margin-top: 2.5rem;
+            }
+        
             
             &:not(:first-child){
                 margin-top: 3rem;
@@ -94,6 +144,12 @@
             .fa-map-marker{
                 margin-right: 1.4rem;
                 font-size: 2rem;
+
+                @media only screen and (max-width: $bp-small){
+                    font-size: 2.5rem;
+                    margin-right: 1.7rem;
+                }
+    
             }
         }
     }

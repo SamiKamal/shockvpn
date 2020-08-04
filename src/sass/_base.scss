@@ -12,6 +12,14 @@ $color-grey-light-2: #757575;
 // FONT VARIABLES
 $font-primary: 'Poppins', sans-serif;
 
+// RESPONSIVE BREAKPOINTS
+$bp-largest: 75em;   // 1200px
+$bp-large: 62.5em;   // 1000px
+$bp-medium: 43.75em;    // 700px;
+$bp-small: 37.5em;    // 600px;
+$bp-smallest: 31.25em;    // 500px;
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Modak&display=swap');
 
@@ -26,6 +34,16 @@ $font-primary: 'Poppins', sans-serif;
 html {
     box-sizing: border-box;
     font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+
+    @media only screen and (max-width: $bp-largest) {
+        font-size: 50%;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        font-size: 37.5%;
+    }
+
+
 }
 
 body {
@@ -38,8 +56,14 @@ body {
 
 .container{
     display: grid;
-    grid-template-rows: 100vh repeat(4, min-content);
-    grid-template-columns: minmax(6rem, 1fr) repeat(8 , minmax(min-content,20rem)) minmax(6rem, 1fr); 
+    grid-template-rows: minmax(70vh, 100vh) repeat(4, minmax(min-content, max-content));
+    grid-template-columns: minmax(6rem, 1fr) repeat(8 , minmax(min-content,1fr)) minmax(6rem, 1fr); 
+
+    @media only screen and (max-width: $bp-large) {
+        // grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+        grid-template-columns: minmax(6rem, 1fr) repeat(8, minmax(min-content,1fr)) minmax(6rem, 1fr);
+    }
+
 }
 
 .btn{
@@ -83,4 +107,10 @@ body {
     }
     
 
+}
+
+.black-screen{
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    transition: all .5s;
 }

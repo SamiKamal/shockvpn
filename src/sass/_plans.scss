@@ -4,7 +4,7 @@
     border-top-left-radius: 44px;
     border-top-right-radius: 44px;
     box-shadow: 0 5px 19px rgba(0, 0, 0, .16);
-    height: 220rem;
+    height: 100%;
 
 }
 .plans{
@@ -16,10 +16,24 @@
     }
 
     &__container{
-        display: flex;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        column-gap: 15rem;
+        row-gap: 20rem;
+        justify-items: center;
         margin: 0 auto;
-        padding: 10rem 20rem;
+        padding: 10rem;
         justify-content: space-between;
+
+        @media only screen and (max-width: $bp-small){
+            padding: 8rem;
+        }
+
+        @media only screen and (max-width: $bp-smallest){
+            padding: 4rem 0 4rem 0;
+        }
+
+
 
         .plans__box{
             display: flex;
@@ -83,8 +97,13 @@
             font-size: 4.5rem;
             color: $color-dark;
             position: absolute;
-            left: 45px;
+            left: 35px;
             font-weight: 500;
+
+            @media only screen and (max-width: $bp-small){
+                left: 25px;
+            }
+
         }
     }
 

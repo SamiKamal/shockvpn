@@ -17,6 +17,17 @@
         justify-content: center;
         align-content: start;
         margin-bottom: 33rem;
+
+        @media only screen and (max-width: $bp-large){
+            padding: 10rem 4rem;
+            justify-items: center;
+        }
+
+        @media only screen and (max-width: $bp-smallest){
+            padding: 10rem 1rem;
+            justify-items: center;
+        }
+
     }
 
     &__box{
@@ -27,6 +38,11 @@
         margin-bottom: 4rem;
         transition: all .5s;
         height: min-content;
+
+        @media only screen and (max-width: $bp-smallest){
+            width: 90%;
+        }
+
     }
 
     &__header{
@@ -68,7 +84,7 @@
         font-size: 2rem;
         font-weight: 500;
         margin-bottom: 1.5rem;
-        width: 60rem;
+        max-width: 60rem;
         color: $color-grey-light-2;
         visibility: hidden;
         transition: max-height .5s, opacity .4s;

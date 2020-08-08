@@ -6,6 +6,12 @@
     box-shadow: 0 5px 19px rgba(0, 0, 0, .16);
     height: 100%;
 
+    @media only screen and (max-width: $bp-smallest){
+        height: 300rem;
+
+    }
+
+
 }
 .plans{
 
@@ -46,6 +52,11 @@
             border-radius: 49px;
             box-shadow: 10px 5px 10px rgba(0, 0, 0, .04);
 
+            @media only screen and (max-width: $bp-smallest){
+                margin-right: 2vw;
+            }
+    
+
             &--border{
                 position: absolute;
                 top: 53%;
@@ -63,6 +74,11 @@
             border-radius: 49px;
             background-image: linear-gradient(43deg, rgba(170,68,242,1) 0%, rgba(68,79,242,1) 100%, rgba(68,79,242,1) 100%, rgba(170,68,242,1) 80%);
             box-shadow: 10px 5px 10px rgba(0, 0, 0, .04);
+
+            @media only screen and (max-width: $bp-smallest){
+                margin-right: 2vw;
+            }
+
 
             &::before{
                 content: "Limited Time";

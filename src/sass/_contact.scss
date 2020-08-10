@@ -31,7 +31,7 @@
 
     &__box{
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         row-gap: 10rem;
         max-width: 104.4rem;
         margin: 0 auto;
@@ -86,9 +86,9 @@
                 grid-column: 1/-1;
                 align-self: flex-start;
 
-                // @media only screen and (max-width: $bp-smallest){
-                //     justify-self: flex-start;
-                // }
+                @media only screen and (max-width: $bp-smallest){
+                    width: 250px;
+                }
     
             }
 

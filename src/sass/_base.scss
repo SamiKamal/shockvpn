@@ -87,6 +87,16 @@ body {
 
         &:hover{
             background-position: -140px 0;
+
+            @media only screen and (max-width: $bp-largest) {
+                background-position: -120px 0;
+            }
+
+            @media only screen and (max-width: $bp-small) {
+                background-position: -90px 0;
+            }
+        
+        
             
         }
     }

@@ -27,7 +27,6 @@ document.querySelector('.faq__container').addEventListener('click', e => {
 
     let current = document.querySelector('.faq__box.active') || null;
 
-    console.log(current === e.target.closest('.faq__box.active')) 
     if (current){
       current.classList.remove('active')
     } 

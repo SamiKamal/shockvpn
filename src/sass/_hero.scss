@@ -74,7 +74,7 @@
             padding-right: 2rem;
 
             @media only screen and (max-width: $bp-large){
-                margin-bottom: 10rem;
+                margin-bottom: 10vw;
                 text-align: left;
 
                 &:first-child{
@@ -141,9 +141,9 @@
         margin-top: 15rem;
         max-width: 560px;
 
-        // @media only screen and (max-wdith: $bp-medium){
-        //     width: ;
-        // }
+        @media only screen and (max-width: $bp-large){
+            margin-top: 15vw;
+        }
 
 
         .heading-3{

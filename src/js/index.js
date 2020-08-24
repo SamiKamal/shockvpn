@@ -210,21 +210,123 @@ icon_1.addEventListener( "click", ()=> {
   }
 });
 
+/////////////////////////////////////////////////////////////////
+//////////////////////////////// GET BROWSER WIDTH //////////////
+/////////////////////////////////////////////////////////////////
+function getWidth() {
+    return Math.max(
+      document.body.scrollWidth,
+      document.documentElement.scrollWidth,
+      document.body.offsetWidth,
+      document.documentElement.offsetWidth,
+      document.documentElement.clientWidth
+    ) + 17;
+  }
+      
+  let browserWidth = getWidth()
+  setInterval(() => {
+      browserWidth = getWidth()
+  }, 10000);
 
+
+/////////////////////////////////////////////////////////////////
+//////////////////////////////// SMOOTH SCROLLING ///////////////
+/////////////////////////////////////////////////////////////////
+  var smoothScroll = new scrollToSmooth('a', {
+    targetAttribute: 'href',
+    duration: 400,
+    durationRelative: false,
+    durationMin: 400,
+    durationMax: false,
+    easing: 'easeOutQuad',
+    onScrollStart: (data) => { console.log(data); },
+    onScrollUpdate: (data) => { console.log(data); },
+    onScrollEnd: (data) => { console.log(data); },
+    fixedHeader: null
+})
+smoothScroll.init();
 
 /////////////////////////////////////////////////////////////////
 //////////////////////////////// NAV RESPONSIVE /////////////////
 /////////////////////////////////////////////////////////////////
+let blackScreen = document.querySelector('.black-screen')
 let navList = document.querySelector('.nav--list');
+if (browserWidth <= 1000){
 
-function moveNavRepsoniveIn() {
-  navList.style.transform = 'translateX(30%)';
-  document.querySelector('.black-screen').style.backgroundColor = 'rgba(0, 0, 0, .65)';
-  document.querySelector('.black-screen').style.zIndex = '1'
+    function moveNavRepsoniveIn() {
+    navList.style.transform = 'translateX(30%)';
+    blackScreen.classList.add('display-blackscreen')
+    // blackScreen.style.backgroundColor = 'rgba(0, 0, 0, .65)';
+    // blackScreen.style.zIndex = '1'
+    document.querySelector('.wrapper').style.overflowY = 'hidden'
+    document.querySelector('body').style.overflowY = 'hidden'
+    }
+
+    function moveNavRepsoniveOut() {
+    navList.style.transform = 'translateX(140%)'
+    blackScreen.classList.remove('display-blackscreen')
+    // blackScreen.style.backgroundColor = 'transparent';
+    // blackScreen.style.zIndex = '-1'
+    document.querySelector('.wrapper').style.overflowY = 'initial'
+    document.querySelector('body').style.overflowY = 'initial'
+    }
+
+    /////////////////////////////////////////////////////////////////
+    //////////////////////////////// NAV CLICK //////////////////////
+    /////////////////////////////////////////////////////////////////
+    let navLinks = Array.from(document.querySelectorAll('.nav--link'));
+    navLinks.forEach(el => {
+        el.addEventListener('click', hideNavWhenClick) 
+    });
+    
+    function hideNavWhenClick() {
+        closeMenuAnimation_1();
+        state_1 = "menu";
+        menuDisappearComplete_1 = false;
+        arrowAppearComplete_1 = false;
+        moveNavRepsoniveOut()
+        // div.classList.add('display')
+    
+    }
+
 }
 
-function moveNavRepsoniveOut() {
-  navList.style.transform = 'translateX(140%)'
-  document.querySelector('.black-screen').style.backgroundColor = 'transparent';
-  document.querySelector('.black-screen').style.zIndex = '-1'
+    /////////////////////////////////////////////////////////////////
+    //////////////////////////////// SHOW LANGUGE BOX ///////////////
+    /////////////////////////////////////////////////////////////////
+    var div = document.querySelector('.language-box');
+function showLanguageBoxWhenClick(e) {
+    div.classList.toggle('display')
+    if (!blackScreen.classList.contains('display-blackscreen')){
+        blackScreen.classList.toggle('display-blackscreen')
+    }
+
+    if (browserWidth <= 1000){
+        closeMenuAnimation_1();
+        state_1 = "menu";
+        menuDisappearComplete_1 = false;
+        arrowAppearComplete_1 = false;
+        navList.style.transform = 'translateX(140%)'
+        document.querySelector('.wrapper').style.overflowY = 'initial'
+        document.querySelector('body').style.overflowY = 'initial'
+    
+    }
+
+    
 }
+
+
+
+document.querySelector('.language-li-click').addEventListener('click', showLanguageBoxWhenClick)
+
+    //////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////// REMOVE WHEN CLICK ON BLACK SCREEN ///////////////
+    //////////////////////////////////////////////////////////////////////////////////
+    function removeWhenClickOnBlackscreen(e) {
+        if (e.target === blackScreen){
+            div.classList.add('display')
+            blackScreen.classList.remove('display-blackscreen')
+            hideNavWhenClick()
+        }
+    }
+document.querySelector('body').addEventListener('click', removeWhenClickOnBlackscreen)

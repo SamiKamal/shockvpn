@@ -35,9 +35,15 @@
 
     &__icon{
         height: 76px;
-        margin-left:50% ;
+        margin-left:50%;
         transform: translateX(-50%);
         filter: invert(37%) sepia(99%) saturate(5222%) hue-rotate(255deg) brightness(98%) contrast(94%);
+
+        &.ar{
+            margin-right: initial;
+            transform: translateX(50%);
+            margin-left: 50%;
+        }
     }
 
     &__header{

@@ -54,6 +54,11 @@
 
             @media only screen and (max-width: $bp-smallest){
                 margin-right: 2vw;
+
+                &.ar{
+                    margin-right: initial;
+                    margin-left: 2vw;
+                }
             }
     
 

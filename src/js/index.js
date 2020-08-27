@@ -1,3 +1,7 @@
+let navImg = document.querySelector('.nav-img-lang')
+navImg.src = `img/${localStorage.getItem('lang')}-flag.png`
+
+
 var heading = Array.from(document.querySelectorAll('.faq__header'))
 var content = Array.from(document.querySelectorAll('.faq__text'))
 
@@ -251,45 +255,91 @@ smoothScroll.init();
 /////////////////////////////////////////////////////////////////
 let blackScreen = document.querySelector('.black-screen')
 let navList = document.querySelector('.nav--list');
-if (browserWidth <= 1000){
 
-    function moveNavRepsoniveIn() {
-    navList.style.transform = 'translateX(30%)';
-    blackScreen.classList.add('display-blackscreen')
-    // blackScreen.style.backgroundColor = 'rgba(0, 0, 0, .65)';
-    // blackScreen.style.zIndex = '1'
-    document.querySelector('.wrapper').style.overflowY = 'hidden'
-    document.querySelector('body').style.overflowY = 'hidden'
-    }
-
-    function moveNavRepsoniveOut() {
-    navList.style.transform = 'translateX(140%)'
-    blackScreen.classList.remove('display-blackscreen')
-    // blackScreen.style.backgroundColor = 'transparent';
-    // blackScreen.style.zIndex = '-1'
-    document.querySelector('.wrapper').style.overflowY = 'initial'
-    document.querySelector('body').style.overflowY = 'initial'
-    }
-
-    /////////////////////////////////////////////////////////////////
-    //////////////////////////////// NAV CLICK //////////////////////
-    /////////////////////////////////////////////////////////////////
-    let navLinks = Array.from(document.querySelectorAll('.nav--link'));
-    navLinks.forEach(el => {
-        el.addEventListener('click', hideNavWhenClick) 
-    });
+if (localStorage.getItem('lang') === 'en' || localStorage.getItem('lang') === 'ar'){
+    if (browserWidth <= 1000){
     
-    function hideNavWhenClick() {
-        closeMenuAnimation_1();
-        state_1 = "menu";
-        menuDisappearComplete_1 = false;
-        arrowAppearComplete_1 = false;
-        moveNavRepsoniveOut()
-        // div.classList.add('display')
+        function moveNavRepsoniveIn() {
+        navList.style.transform = 'translateX(30%)';
+        blackScreen.classList.add('display-blackscreen')
+        // blackScreen.style.backgroundColor = 'rgba(0, 0, 0, .65)';
+        // blackScreen.style.zIndex = '1'
+        document.querySelector('.wrapper').style.overflowY = 'hidden'
+        document.querySelector('body').style.overflowY = 'hidden'
+        }
+    
+        function moveNavRepsoniveOut() {
+        navList.style.transform = 'translateX(140%)'
+        blackScreen.classList.remove('display-blackscreen')
+        // blackScreen.style.backgroundColor = 'transparent';
+        // blackScreen.style.zIndex = '-1'
+        document.querySelector('.wrapper').style.overflowY = 'initial'
+        document.querySelector('body').style.overflowY = 'initial'
+        }
+    
+        /////////////////////////////////////////////////////////////////
+        //////////////////////////////// NAV CLICK //////////////////////
+        /////////////////////////////////////////////////////////////////
+        let navLinks = Array.from(document.querySelectorAll('.nav--link'));
+        navLinks.forEach(el => {
+            el.addEventListener('click', hideNavWhenClick) 
+        });
+        
+        function hideNavWhenClick() {
+            closeMenuAnimation_1();
+            state_1 = "menu";
+            menuDisappearComplete_1 = false;
+            arrowAppearComplete_1 = false;
+            moveNavRepsoniveOut()
+            // div.classList.add('display')
+        
+        }
+    
+    }
+
+} else {
+    if (browserWidth <= 1940){
+    
+        function moveNavRepsoniveIn() {
+        navList.style.transform = 'translateX(40%)';
+        blackScreen.classList.add('display-blackscreen')
+        // blackScreen.style.backgroundColor = 'rgba(0, 0, 0, .65)';
+        // blackScreen.style.zIndex = '1'
+        document.querySelector('.wrapper').style.overflowY = 'hidden'
+        document.querySelector('body').style.overflowY = 'hidden'
+        }
+    
+        function moveNavRepsoniveOut() {
+        navList.style.transform = 'translateX(120%)'
+        blackScreen.classList.remove('display-blackscreen')
+        // blackScreen.style.backgroundColor = 'transparent';
+        // blackScreen.style.zIndex = '-1'
+        document.querySelector('.wrapper').style.overflowY = 'initial'
+        document.querySelector('body').style.overflowY = 'initial'
+        }
+    
+        /////////////////////////////////////////////////////////////////
+        //////////////////////////////// NAV CLICK //////////////////////
+        /////////////////////////////////////////////////////////////////
+        let navLinks = Array.from(document.querySelectorAll('.nav--link'));
+        navLinks.forEach(el => {
+            el.addEventListener('click', hideNavWhenClick) 
+        });
+        
+        function hideNavWhenClick() {
+            closeMenuAnimation_1();
+            state_1 = "menu";
+            menuDisappearComplete_1 = false;
+            arrowAppearComplete_1 = false;
+            moveNavRepsoniveOut()
+            // div.classList.add('display')
+        
+        }
     
     }
 
 }
+console.log(browserWidth)
 
     /////////////////////////////////////////////////////////////////
     //////////////////////////////// SHOW LANGUGE BOX ///////////////
@@ -330,3 +380,53 @@ document.querySelector('.language-li-click').addEventListener('click', showLangu
         }
     }
 document.querySelector('body').addEventListener('click', removeWhenClickOnBlackscreen)
+
+    //////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////// CHANGE STYLE BASE ON LANGUAGE ///////////////////
+    //////////////////////////////////////////////////////////////////////////////////
+    if (localStorage.getItem('lang') === 'de') {
+        document.querySelector('.heading-1').classList.add('de')
+        document.querySelector('.nav--list').classList.add('de')
+        document.querySelector('.icon').classList.add('de')
+        document.querySelector('.box').classList.add('de')
+        document.querySelectorAll('.nav--item').forEach(el => el.classList.add('de'))
+
+
+    }
+
+    if (localStorage.getItem('lang')  === 'ar'){
+        document.querySelector('.hero__img').classList.add('ar')
+        document.querySelector('.plans__box--border').classList.add('ar')
+        document.querySelector('.nav--list').classList.add('ar')
+        document.querySelectorAll('.features__icon').forEach(el => el.classList.add('ar'))
+        document.querySelectorAll('.btn-full').forEach(el => el.classList.add('ar'))
+    }
+
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////// CHANGE LANGUAGE /////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////
+    function changeLanguage(e) {
+        console.log(e.target)
+        if (e.target.closest('.german')){
+            localStorage.setItem('lang' , 'de')
+            location.reload()
+            return false
+
+
+        } else if (e.target.closest('.arab')) {
+            localStorage.setItem('lang' , 'ar')
+            location.reload()
+            return false
+    } else if (e.target.closest('.english')) {
+        localStorage.setItem('lang' , 'en')
+        location.reload()
+        return false
+}
+
+}
+
+document.querySelector('.language-box').addEventListener('click', changeLanguage)
+    // make the user choose langauge
